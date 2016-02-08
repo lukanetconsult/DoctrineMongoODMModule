@@ -34,7 +34,7 @@ class DoctrineObjectHydratorFactory
         $serviceLocator = $hydratorPluginManager->getServiceLocator();
 
         /** @var DocumentManager $documentManager */
-        $documentManager = $serviceLocator->get('doctrine.documentmanager.odm_default');
+        $documentManager = $serviceLocator->get('doctrine.odm.documentmanager.default');
 
         return new DoctrineObject($documentManager);
     }
