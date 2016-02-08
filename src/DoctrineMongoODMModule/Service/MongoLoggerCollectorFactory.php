@@ -19,8 +19,6 @@
 
 namespace DoctrineMongoODMModule\Service;
 
-use DoctrineModule\Service\AbstractFactory;
-
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 use DoctrineMongoODMModule\Collector\MongoLoggerCollector;

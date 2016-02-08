@@ -19,7 +19,6 @@
 namespace DoctrineMongoODMModule\Service;
 
 use Doctrine\MongoDB\Connection;
-use DoctrineModule\Service\AbstractFactory;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
@@ -77,7 +76,7 @@ class ConnectionFactory extends AbstractFactory
         }
 
         /** @var $configuration \Doctrine\ODM\MongoDB\Configuration */
-        $configuration = $serviceLocator->get('doctrine.configuration.' . $this->getName());
+        $configuration = $serviceLocator->get('doctrine.odm.configuration.' . $this->getName());
 
         // Set defaultDB to $dbName, if it's not defined in configuration
         if (null === $configuration->getDefaultDB()) {

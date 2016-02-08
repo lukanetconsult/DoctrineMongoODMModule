@@ -32,21 +32,21 @@ class DocumentManager extends AbstractOptions
 {
     /**
      * Set the configuration key for the Configuration. Configuration key
-     * is assembled as "doctrine.configuration.{key}" and pulled from
+     * is assembled as "doctrine.odm.configuration.{key}" and pulled from
      * service locator.
      *
      * @var string
      */
-    protected $configuration = 'odm_default';
+    protected $configuration = 'default';
 
     /**
      * Set the connection key for the Connection. Connection key
-     * is assembled as "doctrine.connection.{key}" and pulled from
+     * is assembled as "doctrine.odm.connection.{key}" and pulled from
      * service locator.
      *
      * @var string
      */
-    protected $connection = 'odm_default';
+    protected $connection = 'default';
 
     /**
      * Set the event manager key for the event manager. Key
@@ -55,7 +55,7 @@ class DocumentManager extends AbstractOptions
      *
      * @var string
      */
-    protected $eventManager = 'odm_default';
+    protected $eventManager = 'default';
 
     /**
      *
@@ -73,7 +73,7 @@ class DocumentManager extends AbstractOptions
      */
     public function getConfiguration()
     {
-        return "doctrine.configuration.{$this->configuration}";
+        return "doctrine.odm.configuration.{$this->configuration}";
     }
 
     /**
@@ -92,14 +92,15 @@ class DocumentManager extends AbstractOptions
      */
     public function getConnection()
     {
-        return "doctrine.connection.{$this->connection}";
+        return "doctrine.odm.connection.$this->connection";
     }
 
     /**
      *
      * @return string
      */
-    public function getEventManager() {
+    public function getEventManager()
+    {
         return "doctrine.eventmanager.{$this->eventManager}";
     }
 
@@ -108,7 +109,8 @@ class DocumentManager extends AbstractOptions
      * @param type $eventManager
      * @return \DoctrineMongoODMModule\Options\DocumentManager
      */
-    public function setEventManager($eventManager) {
+    public function setEventManager($eventManager)
+    {
         $this->eventManager = (string) $eventManager;
         return $this;
     }

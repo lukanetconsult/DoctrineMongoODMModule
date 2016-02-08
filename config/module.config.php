@@ -1,6 +1,5 @@
 <?php
 
-
 return array(
     'doctrine_factories' => array(
         'odm' => array(
@@ -12,56 +11,57 @@ return array(
     ),
     'doctrine' => array(
         'odm' => array(
-        'connection' => array(
+            'connection' => array(
                 'default' => array(
-                'server'           => 'localhost',
-                'port'             => '27017',
-                'user'             => null,
-                'password'         => null,
-                'dbname'           => null,
-                'options'          => array()
+                    'server' => 'localhost',
+                    'port' => '27017',
+                    'user' => null,
+                    'password' => null,
+                    'dbname' => null,
+                    'options' => array()
+                )
             ),
-        ),
 
-        'configuration' => array(
+            'configuration' => array(
                 'default' => array(
-                    'metadata_cache'     => 'doctrine.cache.array',
+                    'metadata_cache' => 'array',
 
-                    'driver'             => 'doctrine.driver.default',
+                    'driver' => 'default',
 
-                'generate_proxies'   => true,
-                'proxy_dir'          => 'data/DoctrineMongoODMModule/Proxy',
-                'proxy_namespace'    => 'DoctrineMongoODMModule\Proxy',
+                    'generate_proxies' => true,
+                    'proxy_dir' => 'data/DoctrineMongoODMModule/Proxy',
+                    'proxy_namespace' => 'DoctrineMongoODMModule\Proxy',
 
-                'generate_hydrators' => true,
-                'hydrator_dir'       => 'data/DoctrineMongoODMModule/Hydrator',
-                'hydrator_namespace' => 'DoctrineMongoODMModule\Hydrator',
+                    'generate_hydrators' => true,
+                    'hydrator_dir' => 'data/DoctrineMongoODMModule/Hydrator',
+                    'hydrator_namespace' => 'DoctrineMongoODMModule\Hydrator',
 
-                'default_db'         => null,
+                    'default_db' => null,
 
-                'filters'            => array(),  // array('filterName' => 'BSON\Filter\Class')
+                    'filters' => array(),  // array('filterName' => 'BSON\Filter\Class')
 
-                // custom types
-                'types'              => array()
 
+                    // custom types
+                    'types' => array()
+                )
                 //'classMetadataFactoryName' => 'ClassName'
-                ),
             ),
+
             'documentmanager' => array(
                 'default' => array(
-                    'connection'    => 'doctrine.odm.connection.default',
-                    'configuration' => 'doctrine.odm.configuration.default',
-                    'eventmanager'  => 'doctrine.eventmanager.default'
-            )
-        ),
-            'mongologgercollector' => array(
-                'default' => array(),
+                    'connection' => 'default',
+                    'configuration' => 'default',
+                    'eventmanager' => 'default'
+                )
             ),
+            'mongologgercollector' => array(
+                'default' => array()
+            )
         ),
 
         'driver' => array(
             'default' => array(
-                'class'   => 'Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain',
+                'class' => 'Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain',
                 'drivers' => array()
             )
         ),
@@ -84,25 +84,26 @@ return array(
             'storage' => array(
                 'default' => array(
                     'object_manager' => 'doctrine.odm.documentmanager.default',
-                    'identity_class' => 'Application\Model\User',
+                    'identity_class' => 'Application\Model\User'
                 )
-            ),
             )
-        ),
+        )
+    ),
 
     'service_manager' => array(
         'alias' => array(
             'doctrine.objectmanager.default' => 'doctrine.odm.documentmanager.default'
         ),
         'invokables' => array(
-            'DoctrineMongoODMModule\Logging\DebugStack'   => 'DoctrineMongoODMModule\Logging\DebugStack',
-            'DoctrineMongoODMModule\Logging\LoggerChain'  => 'DoctrineMongoODMModule\Logging\LoggerChain',
-            'DoctrineMongoODMModule\Logging\EchoLogger'   => 'DoctrineMongoODMModule\Logging\EchoLogger',
+            'DoctrineMongoODMModule\Logging\DebugStack' => 'DoctrineMongoODMModule\Logging\DebugStack',
+            'DoctrineMongoODMModule\Logging\LoggerChain' => 'DoctrineMongoODMModule\Logging\LoggerChain',
+            'DoctrineMongoODMModule\Logging\EchoLogger' => 'DoctrineMongoODMModule\Logging\EchoLogger',
 
-//             'doctrine.builder.odm.connection'             => 'DoctrineMongoODMModule\Builder\ConnectionBuilder',
-//             'doctrine.builder.odm.configuration'          => 'DoctrineMongoODMModule\Builder\ConfigurationBuilder',
-//             'doctrine.builder.odm.documentmanager'        => 'DoctrineMongoODMModule\Builder\DocumentManagerBuilder',
-//             'doctrine.builder.odm.mongologgercollector'   => 'DoctrineMongoODMModule\Builder\MongoLoggerCollectorBuilder',
+            //             'doctrine.builder.odm.connection'             => 'DoctrineMongoODMModule\Builder\ConnectionBuilder',
+            //             'doctrine.builder.odm.configuration'          => 'DoctrineMongoODMModule\Builder\ConfigurationBuilder',
+            //             'doctrine.builder.odm.documentmanager'        => 'DoctrineMongoODMModule\Builder\DocumentManagerBuilder',
+            //             'doctrine.builder.odm.mongologgercollector'   => 'DoctrineMongoODMModule\Builder\MongoLoggerCollectorBuilder',
+
 
             // ODM commands
             'doctrine.odm.query_command' => 'Doctrine\ODM\MongoDB\Tools\Console\Command\QueryCommand',
@@ -113,8 +114,8 @@ return array(
             'doctrine.odm.create_command' => 'Doctrine\ODM\MongoDB\Tools\Console\Command\Schema\CreateCommand',
             'doctrine.odm.update_command' => 'Doctrine\ODM\MongoDB\Tools\Console\Command\Schema\UpdateCommand',
             'doctrine.odm.drop_command' => 'Doctrine\ODM\MongoDB\Tools\Console\Command\Schema\DropCommand',
-            'doctrine.odm.clear_cache_metadata' => 'Doctrine\ODM\MongoDB\Tools\Console\Command\ClearCache\MetadataCommand',
-        ),
+            'doctrine.odm.clear_cache_metadata' => 'Doctrine\ODM\MongoDB\Tools\Console\Command\ClearCache\MetadataCommand'
+        )
     ),
 
     'hydrators' => array(
@@ -125,22 +126,23 @@ return array(
 
     // zendframework/zend-developer-tools specific settings
 
+
     'view_manager' => array(
         'template_map' => array(
-            'zend-developer-tools/toolbar/doctrine-odm' => __DIR__ . '/../view/zend-developer-tools/toolbar/doctrine-odm.phtml',
-        ),
+            'zend-developer-tools/toolbar/doctrine-odm' => __DIR__ . '/../view/zend-developer-tools/toolbar/doctrine-odm.phtml'
+        )
     ),
 
     'zenddevelopertools' => array(
         'profiler' => array(
             'collectors' => array(
-                'odm.default' => 'doctrine.odm.mongologgercollector.default',
-            ),
+                'odm.default' => 'doctrine.odm.mongologgercollector.default'
+            )
         ),
         'toolbar' => array(
             'entries' => array(
-                'odm.default' => 'zend-developer-tools/toolbar/doctrine-odm',
-            ),
-        ),
-    ),
+                'odm.default' => 'zend-developer-tools/toolbar/doctrine-odm'
+            )
+        )
+    )
 );

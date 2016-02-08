@@ -18,13 +18,12 @@
  */
 namespace DoctrineMongoODMModule\Service;
 
-use DoctrineModule\Service\AbstractFactory;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
  * Factory creates a mongo document manager
- * 
+ *
  * @license MIT
  * @link    http://www.doctrine-project.org/
  * @since   0.1.0
@@ -32,11 +31,11 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  */
 class DocumentManagerFactory extends AbstractFactory
 {
-    
+
     /**
      * @param \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
      * @return \Doctrine\ODM\MongoDB\DocumentManager
-     */     
+     */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $options      = $this->getOptions($serviceLocator, 'documentmanager');
