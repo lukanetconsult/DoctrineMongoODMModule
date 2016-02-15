@@ -102,9 +102,9 @@ class Module implements
 
         $arguments = new ArgvInput();
         $documentManagerName = $arguments->getParameterOption('--documentmanager');
-        $documentManagerName = !empty($documentManagerName) ? $documentManagerName : 'odm_default';
+        $documentManagerName = !empty($documentManagerName) ? $documentManagerName : 'default';
 
-        $documentManager = $event->getParam('ServiceManager')->get('doctrine.documentmanager.' . $documentManagerName);
+        $documentManager = $event->getParam('ServiceManager')->get('doctrine.odm.documentmanager.' . $documentManagerName);
         $documentHelper  = new \Doctrine\ODM\MongoDB\Tools\Console\Helper\DocumentManagerHelper($documentManager);
         $cli->getHelperSet()->set($documentHelper, 'dm');
     }
